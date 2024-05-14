@@ -85,3 +85,27 @@ Jika berhasil melakukan seeding data ke database Postgre Vercel, maka akan tampi
 Jawab: Dari file yand sudah dibuat tersebut, masing-masing memiliki kegunaan. File seed.js berguna untuk menginputkan data dan tabel kedalam database, sedangkan data.js berguna untuk menentukan data apa saja yang akan diinputkan ditiap tabel.
 
 ![Output](img/ss3.png)
+
+**Menjelajah Basis Data**
+
+1. Buka akun vercel Anda, cek pada sidenav klik **Data** seperti gambar di bawah ini.
+2. Pada bagian Browser, Anda akan melihat tabel baru terdiri dari: users, customers, invoices, dan revenue.
+3. Dengan memilih setiap tabel tersebut, pastikan data telah sesuai seperti pada file `src/seeder/data.js`
+4. Anda dapat melakukan query SQL dengan klik tab **Query**.
+5. Cobalah eksekusi query berikut ini.
+```sql
+SELECT invoices.amount, customers.name
+FROM invoices
+JOIN customers ON invoices.customer_id = customers.id
+WHERE invoices.amount = 666;
+```
+
+>**Soal 4**
+>
+>Capture hasil query Anda dan buatlah laporan di file README.md. Jelaskan apa yang telah Anda pelajari ? Cobalah eksekusi query SQL yang lain sesuai kreasi Anda, capture hasilnya dan jelaskan!
+>
+>Jangan lupa push dengan pesan commit: "W09: Jawaban soal 4".
+
+Jawab: Dari Query diatas berguna untuk menggabungkan tabel invoices dan customers, dengan hanya menampilkan data amount dan name dari masing-masing tabel dengan key berupa customer_id, dan data yang ditampilkan adalah amount dari invoices yang memiliki nilai 666.
+
+![Output](img/ss4.png)
