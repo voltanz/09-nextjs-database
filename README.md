@@ -50,3 +50,38 @@ npm i --save @vercel/postgres
 Jawab: Selain dalam hal deployment proyek dari Github, Vercel juga dapat membantu dalam pembuatan Database, pada praktikum ini dilakukan pembuatan database Postgres dengan Vercel, untuk mengakses Database ini maka perlu dibuat file .env dan menambahkan file tersebut ke .gitignore agar kode untuk akses database tersebut tidak ikut terpush ke Github.
 
 ![Output](img/ss2.png)
+
+**Melakukan seed ke basis data**
+
+1. Sekarang database Anda telah dibuat, mari kita isi dengan beberapa data awal. Ini akan memungkinkan Anda memiliki beberapa data untuk digunakan.
+2. Di folder `src/seeder` proyek Anda, ada file bernama `seed.js`. Skrip ini berisi instruksi untuk membuat dan menyemai tabel `invoices`, `customers`, `user`, `revenue`.
+3. Jangan khawatir jika Anda tidak memahami semua yang ada dalam kode tersebut, tetapi untuk memberi Anda gambaran umum, skrip itu menggunakan SQL untuk membuat tabel, dan data dari file `src/seeder/data.js` untuk mengisinya setelah tabel tersebut selesai dibuat.
+4. Selanjutnya, di file `package.json` Anda, tambahkan baris skrip `seed` seperti berikut:
+![Output](img/1.png)
+
+5. Perintah tersebut akan mengeksekusi file seed.js. Sekarang jalankan perintah berikut di terminal:
+```
+npm run seed
+```
+6. Apa yang terjadi ? `error` atau berhasil insert data ke database Postgre ?
+
+>Troubleshooting:
+>
+> - Jika Anda mengalami error karena module dotenv tidak ada, silakan Anda dapat menginstallnya terlebih dahulu dengan perintah `npm i --save dotenv`
+>
+> - Jika terjadi error karena module `bcrypt` tidak ditemukan, silakan install dengan perintah `npm i --save bcrypt`
+>
+> - Jika terjadi error karena `data.js` tidak ditemukan, silakan ubah kode di `seed.js` menjadi seperti ini: `require('./data.js')`
+
+Jika berhasil melakukan seeding data ke database Postgre Vercel, maka akan tampil seperti gambar berikut.
+![Output](img/ss3.png)
+
+>Soal 3
+>
+>Capture hasil `npm run seed` Anda dan buatlah laporan di file **README.md.** Jelaskan apa yang telah Anda pelajari ?
+>
+>Jangan lupa push dengan pesan commit: "`W09: Jawaban soal 3`".
+
+Jawab: Dari file yand sudah dibuat tersebut, masing-masing memiliki kegunaan. File seed.js berguna untuk menginputkan data dan tabel kedalam database, sedangkan data.js berguna untuk menentukan data apa saja yang akan diinputkan ditiap tabel.
+
+![Output](img/ss3.png)
