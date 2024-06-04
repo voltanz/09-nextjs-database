@@ -799,3 +799,23 @@ Jawab: Pertama-tama dilakukan pembuatan model definitions yang berguna untuk men
 Dan pada components mulai dibuat komponen dan laman yang akan ditampilkan, beserta data yang didapatkan, namun saat ini laman yang berguna untuk menampilkan data masih belum dijalankan, untuk mencegah terjadinya error. Setelah components selesai, selanjutnya adalah memperbarui halaman page.tsx yang merupakan tampilan utama, sehingga components yang sudah dibuat dapat diimport dan disajikan di halaman website saat server dijalankan.
 
 ![Output](img/ss5.png)
+
+**Fetching Data untuk komponen RevenueChart**
+
+7. Buka file src\app\page.tsx
+8. Kemudian hapus comment pada komponen RevenueChart
+9. Coba running localhost atau langsung deploy ke Vercel dengan cara push.
+10. Amati apa yang terjadi ? Jika error atau ada tampilan grafik yang kurang baik, silakan Anda dapat perbaiki.
+
+![Output](img/ss6.png)
+
+> **Soal 5**
+>
+> Lakukan capture dan push hasilnya, kemudian buatlah laporan di file **README.md**. Jelaskan apa yang telah Anda pelajari ?
+>
+> Jangan lupa push dengan pesan commit: "**W09: Jawaban soal 6**".
+
+Jawab:
+
+Data yang diperoleh dari revenueFetch diolah untuk ditampilkan dalam laman ReactJS, dengan dimulai dari mengekstrak data untuk sumbu X dan Y. Selanjutnya data revenue dikonversi ke format data map, dan terakhir adalah menampilkan data dari map revenue tersebut.
+
