@@ -809,7 +809,7 @@ Dan pada components mulai dibuat komponen dan laman yang akan ditampilkan, beser
 
 ![Output](img/ss6.png)
 
-> **Soal 5**
+> **Soal 6**
 >
 > Lakukan capture dan push hasilnya, kemudian buatlah laporan di file **README.md**. Jelaskan apa yang telah Anda pelajari ?
 >
@@ -819,3 +819,29 @@ Jawab:
 
 Data yang diperoleh dari revenueFetch diolah untuk ditampilkan dalam laman ReactJS, dengan dimulai dari mengekstrak data untuk sumbu X dan Y. Selanjutnya data revenue dikonversi ke format data map, dan terakhir adalah menampilkan data dari map revenue tersebut.
 
+
+**Fetching Data untuk komponen LatestInvoices**
+
+Untuk komponen `LatestInvoices`, kita butuh 5 invoices terakhir yang diurutkan berdasarkan tanggal.
+
+Anda dapat mengambil semua invoices dan memilahnya menggunakan JavaScript. Hal ini tidak menjadi masalah karena data saat ini masih sedikit, namun seiring berkembangnya aplikasi Anda, hal ini dapat meningkatkan jumlah data yang ditransfer secara signifikan pada setiap permintaan dan JavaScript yang diperlukan untuk memilahnya.
+
+Daripada memilah-milah invoices terbaru di memori, Anda bisa menggunakan kueri SQL untuk mengambil hanya 5 invoices terakhir. Misalnya, ini adalah kueri SQL dari file `query.tsx`:
+```tsx
+// Fetch the last 5 invoices, sorted by date
+const data = await sql<LatestInvoiceRaw>`
+  SELECT invoices.amount, customers.name, customers.image_url, customers.email
+  FROM invoices
+  JOIN customers ON invoices.customer_id = customers.id
+  ORDER BY invoices.date DESC
+  LIMIT 5`;
+```
+11. Buka `src\app\page.tsx` kemudian lakukan import komponen `LatestInvoices`, lalu hapus comment pada komponen `LatestInvoices` di dalam fungsi `Page()`.
+
+12. Jika Anda cek pada localhost, Anda akan melihat 5 data yang diambil dari basis data (bagian **Latest Invoices**).
+
+> **Soal 7**
+>
+> Lakukan capture dan push hasilnya, kemudian buatlah laporan di file **README.md**. Jelaskan apa yang telah Anda pelajari ?
+>
+> Jangan lupa push dengan pesan commit: "**W09: Jawaban soal 7**".
